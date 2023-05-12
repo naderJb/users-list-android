@@ -1,8 +1,8 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.GoogleRepositoriesAndroid" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.UsersList" parent="Theme.Material3.DayNight.NoActionBar">
 
     </style>
 
-    <style name="Theme.GoogleRepositoriesAndroid" parent="Base.Theme.GoogleRepositoriesAndroid" />
+    <style name="Theme.GoogleRepositoriesAndroid" parent="Base.Theme.UsersList" />
 </resources>

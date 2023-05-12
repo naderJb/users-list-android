@@ -1,0 +1,73 @@
+package com.nader.userslist.base.di
+
+import android.content.Context
+import com.airbnb.lottie.BuildConfig
+import com.google.gson.Gson
+import com.nader.userslist.base.interceptors.NetworkConnectionInterceptor
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
+
+
+@Module
+@InstallIn(SingletonComponent::class)
+class NetworkModule {
+
+    @Provides
+    fun provideVoiceRetrofit(
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(com.nader.userslist.BuildConfig.BASE_URL)
+            .addConverterFactory(gsonConverterFactory)
+            .client(okHttpClient)
+            .build()
+    }
+
+
+    @Provides
+    fun provideOkHttpClient(
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        networkConnectionInterceptor: NetworkConnectionInterceptor
+    ): OkHttpClient {
+        val httpClient = OkHttpClient.Builder()
+        if (BuildConfig.DEBUG) httpClient.addInterceptor(httpLoggingInterceptor)
+        httpClient.addNetworkInterceptor(networkConnectionInterceptor)
+        httpClient.readTimeout(2, TimeUnit.MINUTES)
+        httpClient.writeTimeout(3, TimeUnit.MINUTES)
+        httpClient.connectTimeout(3, TimeUnit.MINUTES)
+        return httpClient.build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.setLevel(if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.BODY)
+        return interceptor
+    }
+
+    @Provides
+    @Singleton
+    fun getGson(): Gson = Gson()
+
+    @Provides
+    @Singleton
+    fun provideGsonFactory(): GsonConverterFactory = GsonConverterFactory.create()
+
+
+    @Provides
+    @Singleton
+    fun provideNetworkConnectionInterceptor(@ApplicationContext context: Context): NetworkConnectionInterceptor =
+        NetworkConnectionInterceptor(context)
+}

@@ -4,6 +4,6 @@
     <style name="Theme.AppCompat.Starting" parent="Theme.SplashScreen">
         <item name="android:windowSplashScreenBackground">#202020</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_users</item>
-        <item name="postSplashScreenTheme">@style/Base.Theme.GoogleRepositoriesAndroid</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.UsersList</item>
     </style>
 </resources>
