@@ -13,7 +13,7 @@ class SharedViewModel : BaseViewModel() {
 
     init {
         viewModelScope.launch {
-            delay(3000)
+            delay(0)
             _isLoading.value = false
         }
     }

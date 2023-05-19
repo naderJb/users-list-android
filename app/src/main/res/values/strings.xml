@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Users List</string>
 
+    <string name="tab.users">Users</string>
+    <string name="tab.favorite">Favorite</string>
 
+    <string-array name="tab.name">
+        <item>@string/tab.users</item>
+        <item>@string/tab.favorite</item>
+    </string-array>
+
+
+    <string name="label_more_info">More Info</string>
+
+    <string name="repo.details.date">Date: %s &#128681;</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

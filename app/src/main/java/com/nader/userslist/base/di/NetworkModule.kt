@@ -1,8 +1,8 @@
 package com.nader.userslist.base.di
 
 import android.content.Context
-import com.airbnb.lottie.BuildConfig
 import com.google.gson.Gson
+import com.nader.userslist.BuildConfig
 import com.nader.userslist.base.interceptors.NetworkConnectionInterceptor
 import dagger.Module
 import dagger.Provides
@@ -28,7 +28,7 @@ class NetworkModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(com.nader.userslist.BuildConfig.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(gsonConverterFactory)
             .client(okHttpClient)
             .build()
@@ -42,7 +42,7 @@ class NetworkModule {
     ): OkHttpClient {
         val httpClient = OkHttpClient.Builder()
         if (BuildConfig.DEBUG) httpClient.addInterceptor(httpLoggingInterceptor)
-        httpClient.addNetworkInterceptor(networkConnectionInterceptor)
+        httpClient.addInterceptor(networkConnectionInterceptor)
         httpClient.readTimeout(2, TimeUnit.MINUTES)
         httpClient.writeTimeout(3, TimeUnit.MINUTES)
         httpClient.connectTimeout(3, TimeUnit.MINUTES)

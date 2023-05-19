@@ -11,12 +11,12 @@ class UsersRepoImpl @Inject constructor(
     private val usersDataSource: UsersDataSource
 ) : UsersRepo {
     override suspend fun getUsers(): Flow<APIResponse<List<UserModel>>> = flow {
-        emit(APIResponse.loading())
+        emit(APIResponse.Loading())
         try {
             val response = usersDataSource.getUsers()
-            emit(APIResponse.success(response))
+            emit(APIResponse.Success(response))
         } catch (e: Exception) {
-            emit(APIResponse.error(e))
+            emit(APIResponse.Error(e))
         }
     }
 }

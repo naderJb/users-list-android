@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_pale_pale"
+    android:elevation="@dimen/fragment.user.additional.elevation"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".users.presentation.ui.fragment.UserAdditionalInformationFragment">
+
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fragment.user.additional.margin.16"
+        android:paddingHorizontal="@dimen/fragment.user.additional.padding.8"
+        android:textAlignment="center"
+        android:textColor="@color/base.text.color"
+        android:textSize="@dimen/text.32"
+        android:textStyle="bold"
+        tools:text="Graziella XYZ" />
+
+    <TextView
+        android:id="@+id/tvStreet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/fragment.user.additional.margin.8"
+        android:textColor="@color/base.text.color"
+        android:textSize="@dimen/text.18"
+        tools:text="chammel street" />
+
+    <TextView
+        android:id="@+id/tvSuite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/fragment.user.additional.margin.8"
+        android:textColor="@color/base.text.color"
+        android:textSize="@dimen/text.18"
+        tools:text="La vue" />
+
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/fragment.user.additional.margin.8"
+        android:textColor="@color/base.text.color"
+        android:textSize="@dimen/text.18"
+        tools:text="Beirut" />
+
+    <TextView
+        android:id="@+id/tvZipcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/fragment.user.additional.margin.8"
+        android:textColor="@color/base.text.color"
+        android:textSize="@dimen/text.18"
+        tools:text="123 5897" />
+
+    <TextView
+        android:id="@+id/tvLat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/fragment.user.additional.margin.8"
+        android:textColor="@color/base.text.color"
+        android:textSize="@dimen/text.18"
+        tools:text="123 5897" />
+
+    <TextView
+        android:id="@+id/tvLong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/fragment.user.additional.margin.8"
+        android:textColor="@color/base.text.color"
+        android:textSize="@dimen/text.18"
+        tools:text="123 5897" />
+</androidx.appcompat.widget.LinearLayoutCompat>

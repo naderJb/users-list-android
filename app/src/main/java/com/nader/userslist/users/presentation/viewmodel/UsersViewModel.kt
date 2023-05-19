@@ -1,4 +1,4 @@
-package com.nader.userslist.users.presentation.ui
+package com.nader.userslist.users.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.nader.userslist.base.baseclasses.BaseViewModel
@@ -19,6 +19,8 @@ class UsersViewModel @Inject constructor(
     private val _users: MutableStateFlow<List<UserModel>> = MutableStateFlow(listOf())
     val users = _users.asStateFlow()
 
+    private val _favoriteUsers: MutableStateFlow<List<UserModel>> = MutableStateFlow(listOf())
+    val favoriteUsers = _favoriteUsers.asStateFlow()
 
     private val _status: MutableStateFlow<DataStatus> = MutableStateFlow(DataStatus.DataLoaded)
     val status = _status.asStateFlow()
@@ -31,7 +33,7 @@ class UsersViewModel @Inject constructor(
                     Status.LOADING -> _status.emit(DataStatus.DataLoading)
 
                     Status.SUCCESS -> {
-                        _status.emit(DataStatus.DataLoading)
+                        _status.emit(DataStatus.DataLoaded)
                         dataStatus.data?.let {
                             _users.emit(it)
                         }
@@ -39,9 +41,26 @@ class UsersViewModel @Inject constructor(
 
                     Status.ERROR -> {
                         _status.emit(DataStatus.DataError(dataStatus.exception))
+                        dataStatus.data?.let {
+                            _users.emit(it)
+                        }
                     }
                 }
             }
+        }
+    }
+
+    fun getFavoriteUsers() {
+        viewModelScope.launch {
+            usersUseCase.getFavoriteUsers().collect {
+                _favoriteUsers.emit(it)
+            }
+        }
+    }
+
+    fun updateUser(userModel: UserModel) {
+        viewModelScope.launch {
+            usersUseCase.updateUser(userModel)
         }
     }
 }

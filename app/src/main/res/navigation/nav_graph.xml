@@ -2,12 +2,25 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_garph"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/usersFragment">
 
     <fragment
         android:id="@+id/usersFragment"
         android:name="com.nader.userslist.users.presentation.ui.fragment.UsersFragment"
         android:label="fragment_users"
-        tools:layout="@layout/fragment_users" />
+        tools:layout="@layout/fragment_users" >
+        <action
+            android:id="@+id/action_usersFragment_to_userAdditionalInformationFragment"
+            app:destination="@id/userAdditionalInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userAdditionalInformationFragment"
+        android:name="com.nader.userslist.users.presentation.ui.fragment.UserAdditionalInformationFragment"
+        android:label="fragment_user_additional_information"
+        tools:layout="@layout/fragment_user_additional_information" >
+        <argument
+            android:name="user"
+            app:argType="com.nader.userslist.users.data.model.UserModel" />
+    </fragment>
 </navigation>

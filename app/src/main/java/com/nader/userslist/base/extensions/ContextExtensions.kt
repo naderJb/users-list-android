@@ -4,6 +4,9 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.widget.Toast
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 
 fun Context.isOnline(): Boolean {
     val connectivityManager =
@@ -16,6 +19,9 @@ fun Context.isOnline(): Boolean {
         else -> false
     }
 }
+
+fun Context.getContextDrawable(@DrawableRes resId: Int) = ContextCompat.getDrawable(this, resId)
+fun Context.getContextColor(@ColorRes resId: Int) = ContextCompat.getColor(this, resId)
 
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

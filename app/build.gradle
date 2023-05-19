@@ -36,7 +36,7 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = JavaVersion.VERSION_17
     }
     buildFeatures {
         viewBinding true
@@ -64,6 +64,7 @@ dependencies {
     def jUnit = "4.13.2"
     def jUnit_android = "1.1.5"
     def espresso = "3.5.1"
+    def room_version = "2.5.1"
 
     //core
     implementation "androidx.core:core-ktx:$ktx_core"
@@ -104,6 +105,12 @@ dependencies {
 
     //android native security for cypher
     implementation "androidx.security:security-crypto:$crypto"
+
+    //room database
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     //testing
     testImplementation "junit:junit:$jUnit"
