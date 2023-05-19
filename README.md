@@ -20,14 +20,14 @@ To deploy this project run
 ```
 Main screen
 ```
-<img src="https://github.com/naderJb/Google-Repositories-Android/blob/main/images/main_light_mode.png?raw=true" width="200" height="400" ><img src="https://github.com/naderJb/Google-Repositories-Android/blob/main/images/main_dark_mode.png?raw=true" width="200" height="400">
+<img src="https://github.com/naderJb/users-list-android/blob/main/images/1.png?raw=true" width="200" height="400" ><img src="https://github.com/naderJb/users-list-android/blob/main/images/2.png?raw=true" width="200" height="400">
 
 ```
-Popup screen in light and dark mode
+Popup screen 
 ```
-<img src="https://github.com/naderJb/Google-Repositories-Android/blob/main/images/popup_dark_mode.png?raw=true" width="200" height="400" ><img src="https://github.com/naderJb/Google-Repositories-Android/blob/main/images/popup_light_mode.png?raw=true" width="200" height="400">
+<img src="https://github.com/naderJb/users-list-android/blob/main/images/4.png?raw=true" width="200" height="400" >
 
 ```
 Favorite Screen
 ```
-<img src="https://github.com/naderJb/Google-Repositories-Android/blob/main/images/popup_dark_mode.png?raw=true" width="200" height="400" ><img src="https://github.com/naderJb/Google-Repositories-Android/blob/main/images/popup_light_mode.png?raw=true" width="200" height="400">
+<img src="https://github.com/naderJb/users-list-android/blob/main/images/3.png?raw=true" width="200" height="400" >
