@@ -13,7 +13,7 @@ interface UsersDao {
     @Query("SELECT * FROM ${DatabaseConstants.TABLE_USERS}")
     suspend fun getAll(): List<UserModel>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllUsers(userModel: List<UserModel>)
 
     @Update
